@@ -1,3 +1,5 @@
+server:
+  port: 5050
 spring: 
   jpa:
     open-in-view: false
@@ -12,4 +14,7 @@ spring:
     url: ENC(fnmW4bsl0cHbwOMMjwDlglEmlcfq0Ul1ed+qvW81dEXjkWn5MXtp5M1+M98YEwo3t5ag6WfqkdNPCR8rEKvDXxduble3Y3rRTSMLHwzsojeU4/phBjBINNVDDoD0bSwO)
     username: ENC(/IJKLGCyENilB91R4+VZQ4Ff1BnXfMbx9U81ONY3ShKRp8zPSgioENEmGjE9kRujMckxl5Fw4SQQU6zG/QLv9Q==)
     password: ENC(WWTrnU4VXnXhLEHjZLo2gXP5Z031HlujQE1tvItLSTijrnrhvEcfDCjwB0NfATonlIX0D4RTlSirCTPsUGdJPQ==)
-
+  graphql:
+    path: /graphql
+    graphiql: 
+      enabled: true
