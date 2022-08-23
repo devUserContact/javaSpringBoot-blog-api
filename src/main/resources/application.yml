@@ -1,6 +1,6 @@
 server:
   port: 5050
-spring: 
+spring:
   jpa:
     open-in-view: false
     hibernate:
@@ -15,6 +15,13 @@ spring:
     username: ENC(/IJKLGCyENilB91R4+VZQ4Ff1BnXfMbx9U81ONY3ShKRp8zPSgioENEmGjE9kRujMckxl5Fw4SQQU6zG/QLv9Q==)
     password: ENC(WWTrnU4VXnXhLEHjZLo2gXP5Z031HlujQE1tvItLSTijrnrhvEcfDCjwB0NfATonlIX0D4RTlSirCTPsUGdJPQ==)
   graphql:
-    path: /graphql
-    graphiql: 
+    servlet:
+      enabled: true
+      mapping: /graphql
+      cors-enabled: true
+      cors:
+        allowed-origins: http://localhost:5050
+        allowed-methods: GET, HEAD, POST
+      async-mode-enabled: true
+    graphiql:
       enabled: true
