@@ -1,15 +1,15 @@
 schema {
-	query: Query,
+  query: Query
 }
 type Query {
-	getAllBlogPosts:[blog_post]
+  devGetAllBlogPosts: [blog_post]
 }
 type blog_post {
-	id: ID
-	title: String
-	sub_title: String
-	body: String
-	media: String
-	tags: String
-	submission_date: String
+  id: ID
+  title: String
+  sub_title: String
+  body: String
+  media: String
+  tags: String
+  submission_date: String
 }

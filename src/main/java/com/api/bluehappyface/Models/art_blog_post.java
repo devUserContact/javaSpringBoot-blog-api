@@ -5,13 +5,13 @@ import java.util.Date;
 
 @Entity
 @Table(name="blog_post")
-public class blog_post {
+public class art_blog_post {
 	@Id
 	private Long id;	
 	@Column
 	private String title;
 	@Column
-	private String sub_title;
+	private String subtitle;
 	@Column
 	private String body;
 	@Column
@@ -27,8 +27,8 @@ public class blog_post {
 	public String getTitle() {
 		return title;
 	}
-	public String getsub_title() {
-		return sub_title;
+	public String getSubtitle() {
+		return subtitle;
 	}
 	public String getBody() {
 		return body;
