@@ -1,23 +1,27 @@
 server:
   port: 8081
 spring:
+  main:
+    allow-bean-definition-overriding: true
   jpa:
+    database: default
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
     show-sql: true
     open-in-view: false
-    generate-ddl: true
   jasypt:
     encryptor:
       algorithm: PBEWithMD5AndTripleDES
       iv-generator-classname: org.jasypt.iv.NoIvGenerator
       password: ${JASYPT_ENCRYPTOR_PASSWORD}
-  dev-sevice:
-    datasource:
+  datasource:
+    dev:
       url: ENC(fnmW4bsl0cHbwOMMjwDlglEmlcfq0Ul1ed+qvW81dEXjkWn5MXtp5M1+M98YEwo3t5ag6WfqkdNPCR8rEKvDXxduble3Y3rRTSMLHwzsojeU4/phBjBINNVDDoD0bSwO)
       username: ENC(/IJKLGCyENilB91R4+VZQ4Ff1BnXfMbx9U81ONY3ShKRp8zPSgioENEmGjE9kRujMckxl5Fw4SQQU6zG/QLv9Q==)
       password: ENC(WWTrnU4VXnXhLEHjZLo2gXP5Z031HlujQE1tvItLSTijrnrhvEcfDCjwB0NfATonlIX0D4RTlSirCTPsUGdJPQ==)
-  art-service:
-    datasource:
-      url: ENC(pVr7yXYyK899o+W81JChGtOF5f1WZaB+/945iK2l6+zO7zQ1sjjlQEm1vo8Hruv5NTTlfUwNzyNMQQygR0dmBCeRwjCQtX3I7xsTl4b0ixEPNWEDSe58+HcnQDuyLU0g)
+    art:
+      url: ENC(Rbs5Hfkw0mFHtqIr77bWTVRtXcsuz9TQb+5vwaN5Rv5obO7sZa9Z2rRqQYnBzMJxXw4f6kYAoHf22nVF6kOG2U90JVg9xiHi+USA8W8gpUkKBFBVHz2fuianD8AAfzp/)
       username: ENC(vFPLFPn9erRXSgyUd36VllWASq7FvFzU2KTF30jU4gfHLE5biXVNSu5h6P1jGDOOWF7Gsmndyi0qNXYmr7s0GA==)
       password: ENC(L+3AwI0vT/B2Q6P/nTnwfQibXt4FUMDQrsOyGNPMxANRCKweCsWBbftCk81CeqBsMcU/6lUHu5exDdHT4YWICiHb7T1StwY4qBF0rRd/8J8=)
 graphql:

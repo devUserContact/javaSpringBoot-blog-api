@@ -9,7 +9,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -18,36 +17,33 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(entityManagerFactoryRef = "devEntityManagerFactory", transactionManagerRef = "devTransactionManager", basePackages = {
+@EnableJpaRepositories(entityManagerFactoryRef = "artEntityManagerFactory", transactionManagerRef = "artTransactionManager", basePackages = {
 		"com.api.bluehappyface.Repo" })
 
-public class DevDataSourceConfig {
+public class ArtDataSourceConfig {
 
-	@Primary
 	@Bean
-	@ConfigurationProperties(prefix = "spring.datasource.dev")
-	public DataSourceProperties devDataSourceProperties() {
+	@ConfigurationProperties(prefix = "spring.datasource.art")
+	public DataSourceProperties artDataSourceProperties() {
 		return new DataSourceProperties();
 	}
 
-	@Primary
 	@Bean
-	public DataSource devDataSource(@Qualifier("devDataSourceProperties") DataSourceProperties dataSourceProperties) {
+	public DataSource artDataSource(@Qualifier("artDataSourceProperties") DataSourceProperties dataSourceProperties) {
 		return dataSourceProperties.initializeDataSourceBuilder().build();
 	}
 
-	@Primary
 	@Bean
-	public LocalContainerEntityManagerFactoryBean devEntityManagerFactory(
-			@Qualifier("devDataSource") DataSource hubDataSource, EntityManagerFactoryBuilder builder) {
+	public LocalContainerEntityManagerFactoryBean artEntityManagerFactory(
+			@Qualifier("artDataSource") DataSource hubDataSource, EntityManagerFactoryBuilder builder) {
 		return builder.dataSource(hubDataSource).packages("com.api.bluehappyface.Models")
 				.persistenceUnit("mysql")
 				.build();
 	}
 
-	@Primary
 	@Bean
-	public PlatformTransactionManager devTransactionManager(@Qualifier("devEntityManagerFactory") EntityManagerFactory factory) {
+	public PlatformTransactionManager artTransactionManager(
+			@Qualifier("artEntityManagerFactory") EntityManagerFactory factory) {
 		return new JpaTransactionManager(factory);
 	}
 }
