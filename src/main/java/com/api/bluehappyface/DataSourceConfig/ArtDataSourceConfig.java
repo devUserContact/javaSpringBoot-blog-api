@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(entityManagerFactoryRef = "artEntityManagerFactory", transactionManagerRef = "artTransactionManager", basePackages = {
-		"com.api.bluehappyface.Repo" })
+		"com.api.bluehappyface.Repo.ArtRepo" })
 
 public class ArtDataSourceConfig {
 
@@ -36,7 +36,7 @@ public class ArtDataSourceConfig {
 	@Bean
 	public LocalContainerEntityManagerFactoryBean artEntityManagerFactory(
 			@Qualifier("artDataSource") DataSource hubDataSource, EntityManagerFactoryBuilder builder) {
-		return builder.dataSource(hubDataSource).packages("com.api.bluehappyface.Models")
+		return builder.dataSource(hubDataSource).packages("com.api.bluehappyface.Models.ArtEntity")
 				.persistenceUnit("mysql")
 				.build();
 	}
