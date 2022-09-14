@@ -1,13 +1,15 @@
 package com.api.bluehappyface.Models;
 
+import lombok.Data;
 import javax.persistence.*;
 import java.util.Date;
 
+@Data
 @Entity
 @Table(name = "blog_post")
 public class ArtEntity {
 	@Id
-	private Long id;
+	private int id;
 	@Column
 	private String title;
 	@Column
@@ -20,32 +22,4 @@ public class ArtEntity {
 	private String tags;
 	@Column
 	private Date submission_date;
-
-	public Long getId() {
-		return id;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public String getSubtitle() {
-		return subtitle;
-	}
-
-	public String getBody() {
-		return body;
-	}
-
-	public String getMedia() {
-		return media;
-	}
-
-	public String getTags() {
-		return tags;
-	}
-
-	public Date getsubmission_date() {
-		return submission_date;
-	}
 }

@@ -1,20 +1,16 @@
 server:
   port: 8081
 spring:
-  main:
-    allow-bean-definition-overriding: true
   jpa:
-    database: default
-    hibernate:
-      ddl-auto: update
-    generate-ddl: true
+    properties:
+      hibernate: 
+        ddl-auto: update
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
     open-in-view: false
-  jasypt:
-    encryptor:
-      algorithm: PBEWithMD5AndTripleDES
-      iv-generator-classname: org.jasypt.iv.NoIvGenerator
-      password: ${JASYPT_ENCRYPTOR_PASSWORD}
+  h2:
+    console:
+      enabled: true
   datasource:
     dev:
       url: ENC(fnmW4bsl0cHbwOMMjwDlglEmlcfq0Ul1ed+qvW81dEXjkWn5MXtp5M1+M98YEwo3t5ag6WfqkdNPCR8rEKvDXxduble3Y3rRTSMLHwzsojeU4/phBjBINNVDDoD0bSwO)
@@ -24,6 +20,11 @@ spring:
       url: ENC(Rbs5Hfkw0mFHtqIr77bWTVRtXcsuz9TQb+5vwaN5Rv5obO7sZa9Z2rRqQYnBzMJxXw4f6kYAoHf22nVF6kOG2U90JVg9xiHi+USA8W8gpUkKBFBVHz2fuianD8AAfzp/)
       username: ENC(vFPLFPn9erRXSgyUd36VllWASq7FvFzU2KTF30jU4gfHLE5biXVNSu5h6P1jGDOOWF7Gsmndyi0qNXYmr7s0GA==)
       password: ENC(L+3AwI0vT/B2Q6P/nTnwfQibXt4FUMDQrsOyGNPMxANRCKweCsWBbftCk81CeqBsMcU/6lUHu5exDdHT4YWICiHb7T1StwY4qBF0rRd/8J8=)
+  jasypt:
+    encryptor:
+      algorithm: PBEWithMD5AndTripleDES
+      iv-generator-classname: org.jasypt.iv.NoIvGenerator
+      password: ${JASYPT_ENCRYPTOR_PASSWORD}
 graphql:
   servlet:
     mapping: /api

@@ -8,7 +8,7 @@ type Query {
 type DevEntity {
   id: ID
   title: String
-  sub_title: String
+  subtitle: String
   body: String
   media: String
   tags: String
