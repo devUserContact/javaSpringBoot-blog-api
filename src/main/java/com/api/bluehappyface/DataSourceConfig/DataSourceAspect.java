@@ -19,30 +19,27 @@ import java.lang.reflect.Method;
 public class DataSourceAspect {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
-
     @Pointcut("@annotation(com.api.bluehappyface.DataSourceConfig.SwitchDataSource)")
     public void annotationPointCut() {
-        //default function
     }
 
-
     @Before("annotationPointCut()")
-    public void before(JoinPoint joinPoint){
-        MethodSignature sign =  (MethodSignature)joinPoint.getSignature();
+    public void before(JoinPoint joinPoint) {
+        MethodSignature sign = (MethodSignature) joinPoint.getSignature();
         Method method = sign.getMethod();
         SwitchDataSource annotation = method.getAnnotation(SwitchDataSource.class);
-        if(annotation != null){
+        if (annotation != null) {
             AbstractRoutingDataSourceImpl.setDatabaseName(annotation.value());
             logger.info("Switch DataSource to [{}] in Method [{}]",
-                annotation.value(), joinPoint.getSignature());
+                    annotation.value(), joinPoint.getSignature());
         }
     }
 
     @After("annotationPointCut()")
-    public void after(JoinPoint point){
-        if(null != AbstractRoutingDataSourceImpl.getDatabaseName()) {
+    public void after(JoinPoint point) {
+        if (null != AbstractRoutingDataSourceImpl.getDatabaseName()) {
             logger.info("Restore DataSource to [{}] in Method [{}]",
-                AbstractRoutingDataSourceImpl.getDatabaseName(), point.getSignature());
+                    AbstractRoutingDataSourceImpl.getDatabaseName(), point.getSignature());
             AbstractRoutingDataSourceImpl.removeDatabaseName();
         }
     }

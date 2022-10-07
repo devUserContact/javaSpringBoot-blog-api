@@ -51,7 +51,7 @@ public class DynamicDatabaseRouter {
 
     private Map<Object, Object> getTargetDataSources() {
 
-        String[] prefixes = {"art", "dev"};
+        String[] prefixes = { "art", "dev" };
 
         List<String> databaseNames = Arrays.asList(prefixes);
         Map<Object, Object> targetDataSourceMap = new HashMap<>();

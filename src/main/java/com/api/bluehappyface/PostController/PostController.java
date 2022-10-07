@@ -21,15 +21,16 @@ public class PostController implements GraphQLQueryResolver {
 	private ArtRepo artRepo;
 
 	PostController(DevRepo devRepo, ArtRepo artRepo) {
-		this.devRepo = devRepo; 
+		this.devRepo = devRepo;
 		this.artRepo = artRepo;
 	}
 
-  @SwitchDataSource("dev")
+	@SwitchDataSource("dev")
 	public List<DevEntity> devGetAllBlogPosts() {
 		return devRepo.findAll();
 	}
-  @SwitchDataSource("art")
+
+	@SwitchDataSource("art")
 	public List<ArtEntity> artGetAllBlogPosts() {
 		return artRepo.findAll();
 	}

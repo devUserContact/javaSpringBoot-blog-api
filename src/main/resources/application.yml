@@ -3,8 +3,8 @@ server:
 spring:
   jpa:
     properties:
-      hibernate: 
-        ddl-auto: update
+      hibernate:
+        ddl-auto: none
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
     open-in-view: false
@@ -28,11 +28,5 @@ spring:
 graphql:
   servlet:
     mapping: /api
-    #    cors-enabled: true
-    #    cors:
-    #      allowed-methods: GET, HEAD, POST
-    #      allowed-origins: http://localhost:3000
-    #      allow-credentials: true
-    #    exception-handlers-enabled: true
     context-setting: PER_REQUEST_WITH_INSTRUMENTATION
     async-mode-enabled: true
