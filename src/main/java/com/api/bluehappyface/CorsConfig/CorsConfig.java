@@ -18,7 +18,7 @@ public class CorsConfig {
 
     corsConfiguration.setAllowCredentials(true);
     corsConfiguration.setAllowedOrigins(Arrays.asList("https://devusercontact.com", "https://artusercontact.com",
-        "https://devusercontact.netlify.app", "https://artusercontact.netlify.app"));
+        "https://devusercontact-blog.netlify.app", "https://artusercontact-blog.netlify.app", "http://localhost:3000"));
     corsConfiguration.setAllowedMethods(Arrays.asList("*"));
     corsConfiguration.setAllowedHeaders(Arrays.asList("*"));
     source.registerCorsConfiguration("/**", corsConfiguration);
